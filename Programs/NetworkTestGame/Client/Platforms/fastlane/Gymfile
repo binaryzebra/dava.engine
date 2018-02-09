@@ -1,0 +1,7 @@
+output_directory "./"
+scheme "Client"
+skip_profile_detection true
+
+app_identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+team_id = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
+xcargs "PROVISIONING_PROFILE_SPECIFIER='match AppStore %s' PRODUCT_BUNDLE_IDENTIFIER='%s' DEVELOPMENT_TEAM='%s' CODE_SIGN_IDENTITY='iPhone Distribution'" % [app_identifier, app_identifier, team_id]

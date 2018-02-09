@@ -1,0 +1,8 @@
+# apple
+app_identifier "dizz.err.networktestgame"
+apple_id "davaengine.certificates@gmail.com"
+team_id "Z62SNRCC46"
+
+# android
+json_key_file "fastlane/actor-key.json"
+package_name "com.dava.nettestgame"

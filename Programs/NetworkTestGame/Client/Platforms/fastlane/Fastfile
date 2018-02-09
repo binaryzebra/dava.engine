@@ -1,0 +1,78 @@
+update_fastlane
+
+fastlane_version "2.66.0"
+
+default_platform :ios
+
+app_identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+
+platform :ios do
+  before_all do
+  end
+
+  lane :beta do
+    match(type: "appstore", git_url: "https://stash-dava.wargaming.net/scm/df/ios.codesigning.networktestgame.git", keychain_password: "User1234", readonly: true)
+    old_build_number = latest_testflight_build_number(version: "1.0")
+    increment_build_number({build_number: old_build_number + 1})
+    gym(
+      export_options: {
+        method: "app-store",
+        provisioningProfiles: { 
+          app_identifier => "match AppStore %s" % [app_identifier]
+        }
+      }
+    )
+    testflight
+  end
+
+  after_all do |lane|
+  end
+
+  error do |lane, exception|
+  end
+end
+
+platform :mac do
+  before_all do
+  end
+
+  lane :build do
+    gym(skip_package_ipa: true)
+  end
+
+  after_all do |lane|
+  end
+
+  error do |lane, exception|
+  end
+end
+
+platform :android do
+  before_all do
+  end
+
+  lane :beta do
+    last_version_code = google_play_track_version_codes(
+      package_name: "com.dava.nettestgame",
+      track: "beta").max
+
+    gradle(
+      task: "assembleArmRelease",
+      project_dir: "Android",
+      properties: {
+        "versionCode" => last_version_code + 1,
+        "versionName" => "beta-%d" % [last_version_code + 1],
+      })
+
+    upload_to_play_store(track: "beta")
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here
+  end
+
+  after_all do |lane|
+  end
+
+  error do |lane, exception|
+  end
+end
