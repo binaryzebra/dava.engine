@@ -1,0 +1,65 @@
+Header:
+    version: "19"
+ImportedPackages:
+- "~res:/UI/Common/Screens.yaml"
+- "~res:/UI/Common/Buttons.yaml"
+Controls:
+-   prototype: "Screens/FullscreenModal"
+    name: "FullscreenModal"
+    position: [0.000000, 0.000000]
+    size: [416.000000, 307.000000]
+    components:
+        Background:
+            drawType: "DRAW_FILL"
+            color: [0.000000, 0.000000, 0.000000, 0.588235]
+        UIShortcutEventComponent:
+            shortcuts: "BACK, Escape"
+    children:
+    -   class: "UIControl"
+        name: "Dialog"
+        position: [29.500000, 32.000000]
+        size: [357.000000, 243.000000]
+        components:
+            Anchor:
+                hCenterAnchorEnabled: true
+                vCenterAnchorEnabled: true
+            Background:
+                drawType: "DRAW_SCALE_PROPORTIONAL"
+                sprite: "~res:/Gfx/UI/battlemenubg.psd"
+                color: [0.000000, 0.588235, 1.000000, 1.000000]
+                perPixelAccuracy: "PER_PIXEL_ACCURACY_ENABLED"
+        children:
+        -   class: "UIControl"
+            name: "ControlsPanel"
+            position: [57.500000, 61.500000]
+            size: [242.000000, 120.000000]
+            components:
+                LinearLayout:
+                    orientation: "TopDown"
+                    spacing: 10.000000
+                SizePolicy:
+                    verticalPolicy: "PercentOfChildrenSum"
+                Anchor:
+                    hCenterAnchorEnabled: true
+                    vCenterAnchorEnabled: true
+            children:
+            -   prototype: "Buttons/BasicButton"
+                name: "MainMenuButton"
+                size: [242.000000, 55.000000]
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                    UIInputEventComponent:
+                        onTouchUpInside: "MAINMENU"
+                    UITextComponent:
+                        text: "Return to Main Menu"
+            -   prototype: "Buttons/BasicButton"
+                name: "ResumeButton"
+                size: [242.000000, 55.000000]
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                    UIInputEventComponent:
+                        onTouchUpInside: "BACK"
+                    UITextComponent:
+                        text: "Resume game"

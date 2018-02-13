@@ -1,0 +1,166 @@
+Header:
+    version: "19"
+ImportedPackages:
+- "~res:/UI/Common/Buttons.yaml"
+- "~res:/UI/Common/Screens.yaml"
+- "~res:/UI/Common/Fields.yaml"
+Controls:
+-   prototype: "Screens/Fullscreen"
+    name: "Fullscreen"
+    position: [0.000000, 0.000000]
+    size: [568.000000, 399.000000]
+    children:
+    -   class: "UIControl"
+        name: "Background"
+        position: [0.000000, 0.000000]
+        size: [568.000000, 399.000000]
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.000000, 0.000000, 0.137255, 1.000000]
+    -   class: "UIControl"
+        name: "ControlsPanel"
+        position: [109.000000, 0.000000]
+        size: [459.000000, 303.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+                spacing: 10.000000
+            SizePolicy:
+                horizontalPolicy: "Ignore"
+                verticalPolicy: "PercentOfChildrenSum"
+            Anchor:
+                hCenterAnchorEnabled: false
+                rightAnchorEnabled: true
+                topAnchorEnabled: true
+                vCenterAnchorEnabled: false
+        children:
+        -   class: "UIControl"
+            name: "Row"
+            position: [0.000000, 0.000000]
+            size: [459.000000, 51.000000]
+            components:
+                LinearLayout:
+                    spacing: 10.000000
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfMaxChild"
+            children:
+            -   class: "UIControl"
+                name: "Label"
+                position: [0.000000, 0.000000]
+                size: [66.000000, 51.000000]
+                components:
+                    SizePolicy:
+                        verticalPolicy: "PercentOfParent"
+                    UITextComponent:
+                        text: "IP:"
+                        fontName: "Basic16"
+                        align: ["RIGHT", "VCENTER"]
+            -   prototype: "Fields/BasicField"
+                name: "IpField"
+                children:
+                -   path: "Field"
+                    text: "10.10.10.10"
+                    font: "Basic16"
+        -   class: "UIControl"
+            name: "Row"
+            position: [0.000000, 61.000000]
+            size: [459.000000, 51.000000]
+            components:
+                LinearLayout:
+                    spacing: 10.000000
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfMaxChild"
+            children:
+            -   class: "UIControl"
+                name: "Label"
+                position: [0.000000, 0.000000]
+                size: [66.000000, 51.000000]
+                components:
+                    SizePolicy:
+                        verticalPolicy: "PercentOfParent"
+                    UITextComponent:
+                        text: "Port:"
+                        fontName: "Basic16"
+                        align: ["RIGHT", "VCENTER"]
+            -   prototype: "Fields/BasicField"
+                name: "PortField"
+                children:
+                -   path: "Field"
+                    text: "9000"
+                    font: "Basic16"
+        -   class: "UIControl"
+            name: "Row_1"
+            position: [0.000000, 122.000000]
+            size: [459.000000, 51.000000]
+            components:
+                LinearLayout:
+                    spacing: 10.000000
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfMaxChild"
+            children:
+            -   class: "UIControl"
+                name: "Label"
+                position: [0.000000, 0.000000]
+                size: [66.000000, 51.000000]
+                components:
+                    SizePolicy:
+                        verticalPolicy: "PercentOfParent"
+                    UITextComponent:
+                        text: "Token:"
+                        fontName: "Basic16"
+                        align: ["RIGHT", "VCENTER"]
+            -   prototype: "Fields/BasicField"
+                name: "TokenField"
+                children:
+                -   path: "Field"
+                    text: "9000"
+                    font: "Basic16"
+                    textalign: ["RIGHT", "VCENTER"]
+        -   prototype: "Buttons/BasicButton"
+            name: "buttonLocalhost"
+            position: [83.000000, 183.000000]
+            size: [100.000000, 55.000000]
+            components:
+                UIInputEventComponent:
+                    onTouchUpInside: "localhost"
+                UITextComponent:
+                    text: "localhost"
+        -   prototype: "Buttons/BasicButton"
+            name: "buttonAWS"
+            position: [83.000000, 248.000000]
+            size: [100.000000, 55.000000]
+            components:
+                UIInputEventComponent:
+                    onTouchUpInside: "aws"
+                UITextComponent:
+                    text: "AWS"
+    -   prototype: "Buttons/BasicButton"
+        name: "BackButton"
+        position: [10.000000, 10.000000]
+        size: [167.000000, 55.000000]
+        components:
+            UIInputEventComponent:
+                onTouchUpInside: "BACK"
+            UITextComponent:
+                text: "Back"
+    -   prototype: "Buttons/BasicButton"
+        name: "ConnectButton"
+        position: [358.000000, 334.000000]
+        size: [200.000000, 55.000000]
+        components:
+            Anchor:
+                rightAnchorEnabled: true
+                rightAnchor: 10.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 10.000000
+            UIInputEventComponent:
+                onTouchUpInside: "CONNECT"
+            UITextComponent:
+                text: "Connect"

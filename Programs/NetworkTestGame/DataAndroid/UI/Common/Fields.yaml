@@ -1,0 +1,39 @@
+Header:
+    version: "19"
+StyleSheets:
+-   selector: ".field:focused"
+    properties:
+        bg-color: [0.000000, 1.000000, 0.000000, 1.000000]
+-   selector: ".field"
+    properties:
+        bg-color: [0.000000, 0.588235, 1.000000, 1.000000]
+Prototypes:
+-   class: "UIControl"
+    name: "BasicField"
+    position: [0.000000, 0.000000]
+    size: [230.000000, 51.000000]
+    classes: "field"
+    components:
+        Background:
+            drawType: "DRAW_STRETCH_BOTH"
+            sprite: "~res:/Gfx/UI/fieldbg.psd"
+            perPixelAccuracy: "PER_PIXEL_ACCURACY_ENABLED"
+            leftRightStretchCap: 20.000000
+            topBottomStretchCap: 19.000000
+    children:
+    -   class: "UITextField"
+        name: "Field"
+        position: [16.000000, 6.000000]
+        size: [198.000000, 39.000000]
+        font: "Basic16"
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 16.000000
+                rightAnchorEnabled: true
+                rightAnchor: 16.000000
+                topAnchorEnabled: true
+                topAnchor: 6.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 6.000000
+            Focus: {}

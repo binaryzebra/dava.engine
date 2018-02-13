@@ -1,0 +1,48 @@
+Header:
+    version: "19"
+ImportedPackages:
+- "~res:/UI/Common/Screens.yaml"
+Controls:
+-   prototype: "Screens/Fullscreen"
+    name: "Fullscreen"
+    position: [0.000000, 0.000000]
+    size: [231.000000, 211.000000]
+    components:
+        Background:
+            drawType: "DRAW_FILL"
+            color: [0.333333, 0.000000, 0.000000, 1.000000]
+    children:
+    -   class: "UIControl"
+        name: "CenterPanel"
+        position: [50.000000, 70.500000]
+        size: [131.000000, 70.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+                spacing: 10.000000
+            SizePolicy:
+                horizontalPolicy: "PercentOfMaxChild"
+                verticalPolicy: "PercentOfChildrenSum"
+            Anchor:
+                hCenterAnchorEnabled: true
+                vCenterAnchorEnabled: true
+        children:
+        -   class: "UIControl"
+            name: "LoadingLabel"
+            size: [131.000000, 28.000000]
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfContent"
+                    verticalPolicy: "PercentOfContent"
+                UITextComponent:
+                    text: "Loading scene..."
+                    fontName: "Basic16"
+                    colorInheritType: "COLOR_IGNORE_PARENT"
+        -   class: "UIControl"
+            name: "Spinner"
+            size: [32.000000, 32.000000]
+            components:
+                Anchor:
+                    hCenterAnchorEnabled: true
+                Background:
+                    drawType: "DRAW_FILL"

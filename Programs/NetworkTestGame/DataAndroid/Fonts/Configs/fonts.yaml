@@ -1,0 +1,21 @@
+Basic16:
+    name: "~res:/Fonts/DejaVuSans.ttf"
+    type: "FTFont"
+    size: 16.000000
+    descendScale: 1.000000
+    ascendScale: 1.000000
+    verticalSpacing: 0
+Basic12:
+    name: "~res:/Fonts/DejaVuSans.ttf"
+    type: "FTFont"
+    size: 12.000000
+    descendScale: 1.000000
+    ascendScale: 1.000000
+    verticalSpacing: 0
+Basic8:
+    name: "~res:/Fonts/DejaVuSans.ttf"
+    type: "FTFont"
+    size: 8.000000
+    descendScale: 1.000000
+    ascendScale: 1.000000
+    verticalSpacing: 0

@@ -1,0 +1,93 @@
+Header:
+    version: "19"
+Controls:
+-   class: "UIControl"
+    name: "Game"
+    size: [32.000000, 32.000000]
+    components:
+        UIFlowControllerComponent:
+            luaScriptPath: "~res:/Lua/GameController.lua"
+        UIFlowStateComponent:
+            services: "UIFlowEngineService,UIFlowEngineService;"
+        UIFlowTransitionComponent:
+            transitions: "BACK,HistoryBack,@;"
+    children:
+    -   class: "UIControl"
+        name: "MainMenu"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowControllerComponent: {}
+            UIFlowStateComponent:
+                stateType: "Single"
+                historyType: "Single"
+                effectOut: "FadeAlpha"
+                effectIn: "FadeAlpha"
+                effectDuration: 0.300000
+            UIFlowTransitionComponent:
+                transitions: "START_GAME,Activate,SetupConnection;OPTIONS,Activate,MainOptions;"
+            UIFlowViewComponent:
+                viewYaml: "~res:/UI/Screens/MainMenu.yaml"
+    -   class: "UIControl"
+        name: "MainOptions"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowControllerComponent:
+                luaScriptPath: "~res:/Lua/OptionsController.lua"
+            UIFlowStateComponent:
+                stateType: "Single"
+                historyType: "Single"
+                effectOut: "FadeAlpha"
+                effectIn: "FadeAlpha"
+                effectDuration: 0.300000
+            UIFlowTransitionComponent: {}
+            UIFlowViewComponent:
+                viewYaml: "~res:/UI/Screens/MainOptions.yaml"
+    -   class: "UIControl"
+        name: "SetupConnection"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowControllerComponent:
+                luaScriptPath: "~res:/Lua/SetupConnectionController.lua"
+            UIFlowStateComponent:
+                stateType: "Single"
+                historyType: "Single"
+                effectOut: "FadeAlpha"
+                effectIn: "FadeAlpha"
+                effectDuration: 0.300000
+            UIFlowTransitionComponent:
+                transitions: "CONNECT,Activate,Battle;"
+            UIFlowViewComponent:
+                viewYaml: "~res:/UI/Screens/SetupConnection.yaml"
+    -   class: "UIControl"
+        name: "Battle"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowControllerComponent:
+                reflectionTypeName: "FlowBattleController"
+            UIFlowStateComponent:
+                stateType: "Single"
+                historyType: "Single"
+                services: "FlowBattleService,FlowBattleService;"
+                effectOut: "FadeAlpha"
+                effectIn: "FadeAlpha"
+                effectDuration: 0.300000
+            UIFlowTransitionComponent:
+                transitions: "MENU,Activate,GameMenu;"
+            UIFlowViewComponent:
+                viewYaml: "~res:/UI/Screens/Battle.yaml"
+        children:
+        -   class: "UIControl"
+            name: "GameMenu"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowControllerComponent: {}
+                UIFlowStateComponent:
+                    stateType: "Multiple"
+                    historyType: "OnlyTop"
+                    effectOut: "FadeAlpha"
+                    effectIn: "FadeAlpha"
+                    effectDuration: 0.2500000
+                UIFlowTransitionComponent:
+                    transitions: "MAINMENU,Activate,MainMenu;"
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Screens/GameMenu.yaml"

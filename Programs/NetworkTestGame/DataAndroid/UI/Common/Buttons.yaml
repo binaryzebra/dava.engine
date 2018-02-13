@@ -1,0 +1,39 @@
+Header:
+    version: "19"
+StyleSheets:
+-   selector: ".button.firebutton"
+    properties:
+        bg-drawType: "DRAW_SCALE_PROPORTIONAL"
+        bg-sprite: "~res:/Gfx/UI/firebutton.psd"
+-   selector: ".button:disabled"
+    properties:
+        bg-color: [0.501961, 0.501961, 0.501961, 1.000000]
+-   selector: ".button:pressed_inside:hover"
+    properties:
+        bg-color: [0.000000, 1.000000, 0.000000, 1.000000]
+-   selector: ".button:pressed_inside"
+    properties:
+        bg-color: [0.000000, 1.000000, 0.000000, 1.000000]
+-   selector: ".button:hover"
+    properties:
+        bg-color: [1.000000, 1.000000, 0.000000, 1.000000]
+-   selector: ".button"
+    properties:
+        bg-drawType: "DRAW_STRETCH_BOTH"
+        bg-sprite: "~res:/Gfx/UI/button.psd"
+        bg-color: [0.000000, 0.588235, 1.000000, 1.000000]
+        bg-leftRightStretchCap: 25.000000
+        bg-topBottomStretchCap: 25.000000
+Prototypes:
+-   class: "UIControl"
+    name: "BasicButton"
+    position: [0.000000, 0.000000]
+    size: [167.000000, 105.000000]
+    classes: "button"
+    components:
+        Background:
+            perPixelAccuracy: "PER_PIXEL_ACCURACY_ENABLED"
+        UITextComponent:
+            text: "Button"
+            fontName: "Basic16"
+            colorInheritType: "COLOR_IGNORE_PARENT"

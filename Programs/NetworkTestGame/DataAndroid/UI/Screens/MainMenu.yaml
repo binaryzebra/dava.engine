@@ -1,0 +1,72 @@
+Header:
+    version: "19"
+ImportedPackages:
+- "~res:/UI/Common/Buttons.yaml"
+- "~res:/UI/Common/Screens.yaml"
+Controls:
+-   prototype: "Screens/Fullscreen"
+    name: "Fullscreen"
+    position: [0.000000, 0.000000]
+    size: [334.000000, 268.000000]
+    components:
+        Focus: {}
+        UIShortcutEventComponent:
+            shortcuts: "EXIT, Escape"
+    children:
+    -   class: "UIControl"
+        name: "Background"
+        size: [334.000000, 268.000000]
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.000000, 0.000000, 0.137255, 1.000000]
+    -   class: "UIControl"
+        name: "ButtonsPanel"
+        position: [83.500000, 31.500000]
+        size: [167.000000, 205.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+                spacing: 20.000000
+            SizePolicy:
+                verticalPolicy: "PercentOfChildrenSum"
+            Anchor:
+                hCenterAnchorEnabled: true
+                vCenterAnchorEnabled: true
+        children:
+        -   prototype: "Buttons/BasicButton"
+            name: "StartButton"
+            position: [0.000000, 0.000000]
+            size: [167.000000, 55.000000]
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                UIInputEventComponent:
+                    onTouchUpInside: "START_GAME"
+                UITextComponent:
+                    text: "Start game"
+        -   prototype: "Buttons/BasicButton"
+            name: "OptionsButton"
+            position: [0.000000, 75.000000]
+            size: [167.000000, 55.000000]
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                UIInputEventComponent:
+                    onTouchUpInside: "OPTIONS"
+                UITextComponent:
+                    text: "Options"
+        -   prototype: "Buttons/BasicButton"
+            name: "ExitButton"
+            position: [0.000000, 150.000000]
+            size: [167.000000, 55.000000]
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                UIInputEventComponent:
+                    onTouchUpInside: "EXIT"
+                UITextComponent:
+                    text: "Exit"

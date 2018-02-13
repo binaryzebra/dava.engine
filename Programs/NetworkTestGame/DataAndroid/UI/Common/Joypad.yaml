@@ -1,0 +1,39 @@
+Header:
+    version: "19"
+Prototypes:
+-   class: "UIControl"
+    name: "BasicJoypad"
+    position: [0.000000, 0.000000]
+    size: [300.000000, 300.000000]
+    children:
+    -   class: "UIJoypad"
+        name: "Joypad"
+        position: [50.000000, 50.000000]
+        size: [200.000000, 200.000000]
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 50.000000
+                rightAnchorEnabled: true
+                rightAnchor: 50.000000
+                topAnchorEnabled: true
+                topAnchor: 50.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 50.000000
+            Background:
+                drawType: "DRAW_FILL"
+                color: [1.000000, 1.000000, 1.000000, 0.196078]
+        children:
+        -   class: "UIControl"
+            name: "stick"
+            position: [100.000000, 100.000000]
+            pivot: [0.500000, 0.500000]
+            noInput: true
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfContent"
+                    verticalPolicy: "PercentOfContent"
+                Background:
+                    drawType: "DRAW_STRETCH_BOTH"
+                    sprite: "~res:/Gfx/UI/Joypad.psd"
+                    color: [0.000000, 0.588235, 1.000000, 1.000000]

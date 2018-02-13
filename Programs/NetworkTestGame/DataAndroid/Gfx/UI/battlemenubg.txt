@@ -1,0 +1,5 @@
+1
+battlemenubg0.tex
+766 501
+1
+0 0 766 501 0 0 0 frame0
